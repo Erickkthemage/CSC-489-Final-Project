@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hp3ufwwnkfb5"
-path="res://.godot/imported/Fall (32x32).png-e3657c5941bfda56f9406e68e54ac9dc.ctex"
+uid="uid://upuk7i45fs05"
+path="res://.godot/imported/Terrain (16x16).png-78c49c346aead1b6bcb18462f59eb2ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fall (32x32).png"
-dest_files=["res://.godot/imported/Fall (32x32).png-e3657c5941bfda56f9406e68e54ac9dc.ctex"]
+source_file="res://assets/sprites/Tiles/Terrain (16x16).png"
+dest_files=["res://.godot/imported/Terrain (16x16).png-78c49c346aead1b6bcb18462f59eb2ab.ctex"]
 
 [params]
 

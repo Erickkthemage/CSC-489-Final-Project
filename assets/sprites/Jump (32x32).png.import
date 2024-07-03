@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnk0jf6c0wasc"
-path="res://.godot/imported/Green.png-2453ab3a64cdab2cb1239cc98f150507.ctex"
+uid="uid://dpvl3mg13h3yi"
+path="res://.godot/imported/Jump (32x32).png-489cbe22bd1fc61dcbf91b29d271a5f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tiles/Green.png"
-dest_files=["res://.godot/imported/Green.png-2453ab3a64cdab2cb1239cc98f150507.ctex"]
+source_file="res://assets/sprites/Jump (32x32).png"
+dest_files=["res://.godot/imported/Jump (32x32).png-489cbe22bd1fc61dcbf91b29d271a5f4.ctex"]
 
 [params]
 

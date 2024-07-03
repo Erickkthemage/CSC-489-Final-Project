@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dbl261u384ksy"]
 
-[ext_resource type="Texture2D" uid="uid://upuk7i45fs05" path="res://Sprites/Tiles/Terrain (16x16).png" id="1_ytxna"]
-[ext_resource type="Texture2D" uid="uid://cnk0jf6c0wasc" path="res://Sprites/Tiles/Green.png" id="2_d21s5"]
+[ext_resource type="Texture2D" uid="uid://upuk7i45fs05" path="res://assets/sprites/Tiles/Terrain (16x16).png" id="1_ytxna"]
+[ext_resource type="Texture2D" uid="uid://cnk0jf6c0wasc" path="res://assets/sprites/Tiles/Green.png" id="2_d21s5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_66617"]
 resource_name = "terrain"

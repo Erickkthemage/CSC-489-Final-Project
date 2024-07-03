@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5ups7y5b71sb"
-path="res://.godot/imported/Bounce (32x32).png-906b30580630075be39ae0cc9a7cb6e3.ctex"
+uid="uid://br5uy1wl6rs75"
+path="res://.godot/imported/Hit (32x32).png-a8a41f624894e8154e6aacb1f1f4bc38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Bounce (32x32).png"
-dest_files=["res://.godot/imported/Bounce (32x32).png-906b30580630075be39ae0cc9a7cb6e3.ctex"]
+source_file="res://assets/sprites/Hit (32x32).png"
+dest_files=["res://.godot/imported/Hit (32x32).png-a8a41f624894e8154e6aacb1f1f4bc38.ctex"]
 
 [params]
 
