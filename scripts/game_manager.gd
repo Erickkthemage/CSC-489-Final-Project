@@ -2,6 +2,7 @@ extends Node
 
 @export var spawn_count = 100000000
 @export var min_distance = 50
+
 @onready var platform = preload("res://scenes/platform.tscn")
 @onready var player = $"../Player"
 @onready var label = $CanvasLayer/Label
@@ -21,6 +22,7 @@ func _ready():
 	rng.randomize()
 
 func _process(_delta):
+	#Spawns the platforms randomly within bounds.
 	if Time.get_ticks_msec() > next_spawn_time:
 		var new_platform = platform.instantiate()
 		
@@ -37,6 +39,7 @@ func _process(_delta):
 		next_spawn_time += 300
 		platform_count += 1
 		
+	#This updates the score appropriately, as well as determining if the game should end.
 	if player.is_on_floor():
 		var current_height = int(abs(player.position.y -346))
 		var current_floor = (current_height - 2) / 50
@@ -46,5 +49,6 @@ func _process(_delta):
 		elif score - current_floor >= 10:
 			emit_signal("game_over")
 
+#Handles Game Over
 func _on_game_over():
 	print("You lose!")
