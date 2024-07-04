@@ -14,6 +14,8 @@ var next_spawn_time = 0
 var platform_count = 0
 var score = 0
 
+signal game_over
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
@@ -41,3 +43,8 @@ func _process(_delta):
 		if score < current_floor:
 			score = current_floor
 			label.text = "Score: " + str(score)
+		elif score - current_floor >= 10:
+			emit_signal("game_over")
+
+func _on_game_over():
+	print("You lose!")

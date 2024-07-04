@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c3sxdi4r5gpeq"]
+[gd_scene load_steps=40 format=3 uid="uid://c3sxdi4r5gpeq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2rog5"]
 [ext_resource type="Texture2D" uid="uid://c5ups7y5b71sb" path="res://assets/sprites/Bounce (32x32).png" id="2_3uho3"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dpjv380qut2v1" path="res://assets/sprites/Idle (32x32).png" id="4_jhy1l"]
 [ext_resource type="Texture2D" uid="uid://dpvl3mg13h3yi" path="res://assets/sprites/Jump (32x32).png" id="5_hyhku"]
 [ext_resource type="Texture2D" uid="uid://cgq24udcf8mxa" path="res://assets/sprites/Run (32x32).png" id="6_vsd7q"]
-[ext_resource type="Script" path="res://scripts/killzonegd.gd" id="7_618e2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yg3qf"]
 atlas = ExtResource("2_3uho3")
@@ -256,8 +255,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xs7d"]
 size = Vector2(10.5, 13)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_blfsy"]
-
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(243, 323)
 collision_layer = 2
@@ -284,13 +281,3 @@ limit_right = 520
 limit_bottom = 425
 position_smoothing_enabled = true
 editor_draw_limits = true
-
-[node name="Killzone" type="Area2D" parent="."]
-position = Vector2(2, 95)
-collision_mask = 2
-script = ExtResource("7_618e2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-shape = SubResource("WorldBoundaryShape2D_blfsy")
-
-[connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
