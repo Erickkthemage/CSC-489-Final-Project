@@ -6,9 +6,9 @@ extends Node
 @onready var platform = preload("res://scenes/platform.tscn")
 @onready var player = $"../Player"
 @onready var label = $CanvasLayer/Label
+@onready var pause_menu = $CanvasLayer/PauseMenu
 
-
-
+var paused = false
 var rng = RandomNumberGenerator.new()
 var last_platform_position = Vector2.ZERO
 var next_spawn_time = 0
@@ -16,6 +16,8 @@ var platform_count = 0
 var score = 0
 
 signal game_over
+signal pause_pressed
+signal resume_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -48,7 +50,28 @@ func _process(_delta):
 			label.text = "Score: " + str(score)
 		elif score - current_floor >= 10:
 			emit_signal("game_over")
+			
+	#This checks if the player pressed the pause button
+	if Input.is_action_just_pressed("pause"):
+		emit_signal("pause_pressed")
 
 #Handles Game Over
 func _on_game_over():
 	print("You lose!")
+	
+#Handles pause input
+func _on_pause_pressed():
+	if paused:
+		pause_menu.hide()
+		emit_signal("resume_pressed")
+
+	else:
+		pause_menu.show()
+		get_tree().paused = true
+		
+	paused = !paused
+
+#Handles resume button
+func _on_resume_pressed():
+	if Input.is_action_just_pressed("pause"):
+		get_tree().paused = false

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg44804k5ftvn"]
+[gd_scene load_steps=8 format=3 uid="uid://bg44804k5ftvn"]
 
 [ext_resource type="TileSet" uid="uid://dbl261u384ksy" path="res://assets/sprites/TileSet.tres" id="1_hduku"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_nfdvs"]
 [ext_resource type="PackedScene" uid="uid://c3sxdi4r5gpeq" path="res://scenes/player.tscn" id="2_dkdg2"]
 [ext_resource type="FontFile" uid="uid://b2dnqx3upa4ch" path="res://assets/font/PixelOperator8-Bold.ttf" id="2_wdqgh"]
+[ext_resource type="PackedScene" uid="uid://bh45y47b0r44e" path="res://scenes/pause_menu.tscn" id="3_f3wba"]
 [ext_resource type="Texture2D" uid="uid://dbcmgiyx1l6ki" path="res://assets/sprites/Tiles/background_5.1.png" id="5_gobj4"]
 [ext_resource type="FontFile" uid="uid://clbsxcq5ul0en" path="res://assets/font/PixelOperator8.ttf" id="6_qsflg"]
 
@@ -26,6 +27,13 @@ theme_override_fonts/font = ExtResource("2_wdqgh")
 text = "Score: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PauseMenu" parent="GameManager/CanvasLayer" instance=ExtResource("3_f3wba")]
+offset_left = -17.3333
+offset_top = 0.666664
+offset_right = -17.3334
+offset_bottom = 0.666687
+scale = Vector2(0.648622, 0.648622)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -64,7 +72,9 @@ scale = Vector2(0.491372, 0.491372)
 theme_override_fonts/font = ExtResource("6_qsflg")
 text = "Use A and D to move left and right.
 
-Use Spacebar to Jump."
+Use Spacebar to Jump.
+
+Press Esc to pause."
 autowrap_mode = 2
 
 [node name="Instructions2" type="Label" parent="Labels"]
@@ -85,5 +95,15 @@ offset_bottom = -140.0
 scale = Vector2(0.411464, 0.411464)
 theme_override_fonts/font = ExtResource("6_qsflg")
 text = "Don't fall too far...."
+
+[node name="Label2" type="Label" parent="Labels"]
+offset_left = -35.0
+offset_top = -47316.0
+offset_right = 583.0
+offset_bottom = -47267.0
+scale = Vector2(0.334644, 0.334644)
+theme_override_fonts/font = ExtResource("2_wdqgh")
+text = "I didn't think anyone would make it this far.
+Congrats!"
 
 [connection signal="game_over" from="GameManager" to="GameManager" method="_on_game_over"]
