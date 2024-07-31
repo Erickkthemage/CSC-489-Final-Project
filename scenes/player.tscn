@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c3sxdi4r5gpeq"]
+[gd_scene load_steps=43 format=3 uid="uid://c3sxdi4r5gpeq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2rog5"]
 [ext_resource type="Texture2D" uid="uid://c5ups7y5b71sb" path="res://assets/sprites/Bounce (32x32).png" id="2_3uho3"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dpjv380qut2v1" path="res://assets/sprites/Idle (32x32).png" id="4_jhy1l"]
 [ext_resource type="Texture2D" uid="uid://dpvl3mg13h3yi" path="res://assets/sprites/Jump (32x32).png" id="5_hyhku"]
 [ext_resource type="Texture2D" uid="uid://cgq24udcf8mxa" path="res://assets/sprites/Run (32x32).png" id="6_vsd7q"]
+[ext_resource type="AudioStream" uid="uid://duet8f5i2ddia" path="res://assets/sounds/Jump.wav" id="7_acade"]
+[ext_resource type="AudioStream" uid="uid://b0n53bdhnaxly" path="res://assets/sounds/Bounce.wav" id="8_i0bwv"]
+[ext_resource type="AudioStream" uid="uid://bdf4cpj44ba1c" path="res://assets/sounds/Running.wav" id="9_fogju"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yg3qf"]
 atlas = ExtResource("2_3uho3")
@@ -281,3 +284,18 @@ limit_right = 520
 limit_bottom = 425
 position_smoothing_enabled = true
 editor_draw_limits = true
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_acade")
+volume_db = -12.0
+bus = &"SFX"
+
+[node name="BounceSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_i0bwv")
+volume_db = -8.0
+bus = &"SFX"
+
+[node name="RunningSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_fogju")
+volume_db = -6.0
+bus = &"SFX"

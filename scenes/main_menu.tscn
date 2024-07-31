@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5ouqqyp4tb0"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jlmnh"]
+[ext_resource type="Shader" path="res://shaders/scroll.gdshader" id="2_qxd2g"]
+[ext_resource type="Texture2D" uid="uid://dbcmgiyx1l6ki" path="res://assets/sprites/Tiles/background_5.1.png" id="3_0s6nu"]
+[ext_resource type="FontFile" uid="uid://clbsxcq5ul0en" path="res://assets/font/PixelOperator8.ttf" id="4_bkgxa"]
+[ext_resource type="FontFile" uid="uid://b2dnqx3upa4ch" path="res://assets/font/PixelOperator8-Bold.ttf" id="4_rjja8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cgsn"]
+shader = ExtResource("2_qxd2g")
+shader_parameter/speed = 0.05
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jlmnh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0cgsn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0s6nu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -50.5
+offset_right = 35.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.52811, 1.52811)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+theme_override_fonts/font = ExtResource("4_bkgxa")
+text = "Play"
+
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_bkgxa")
+text = "Settings"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Play")
+theme_override_fonts/font = ExtResource("4_bkgxa")
+text = "Quit"
+
+[node name="GameName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -431.0
+offset_top = 119.0
+offset_right = -247.0
+offset_bottom = 142.0
+grow_horizontal = 2
+scale = Vector2(4.69598, 4.69598)
+theme_override_fonts/font = ExtResource("4_rjja8")
+text = "Citadel Climb"
+
+[node name="GameCreator" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -298.0
+offset_top = -162.0
+offset_right = 16.0
+offset_bottom = -139.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.91052, 1.91052)
+theme_override_fonts/font = ExtResource("4_rjja8")
+text = "Created by: Erick Diaz"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

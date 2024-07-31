@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh45y47b0r44e"]
+[gd_scene load_steps=4 format=3 uid="uid://bh45y47b0r44e"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_akm3x"]
+[ext_resource type="FontFile" uid="uid://b2dnqx3upa4ch" path="res://assets/font/PixelOperator8-Bold.ttf" id="2_0p0pc"]
+[ext_resource type="FontFile" uid="uid://clbsxcq5ul0en" path="res://assets/font/PixelOperator8.ttf" id="3_ciyn7"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -14,21 +16,82 @@ grow_vertical = 2
 scale = Vector2(0.582138, 0.582138)
 script = ExtResource("1_akm3x")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Pause" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 348.715
-offset_top = 194.112
-offset_right = 348.715
-offset_bottom = 194.112
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.406275, 0.406275)
-color = Color(0.235294, 0.239216, 0.235294, 1)
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+modulate = Color(0.288518, 0.288518, 0.288518, 1)
+layout_mode = 0
+offset_left = -153.42
+offset_top = -150.502
+offset_right = -113.42
+offset_bottom = -110.502
+scale = Vector2(7.80471, 7.80471)
+
+[node name="GridContainer" type="GridContainer" parent="Pause"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5788
+offset_top = -73.2004
+offset_right = 100.421
+offset_bottom = 88.7996
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/v_separation = 8
+
+[node name="Label" type="Label" parent="Pause/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0p0pc")
+theme_override_font_sizes/font_size = 32
+text = "Paused"
+
+[node name="Resume" type="Button" parent="Pause/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ciyn7")
+text = "Resume Game"
+
+[node name="Settings" type="Button" parent="Pause/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ciyn7")
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Pause/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ciyn7")
+text = "Quit"
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Settings"]
+modulate = Color(0.288518, 0.288518, 0.288518, 1)
+layout_mode = 0
+offset_left = -177.469
+offset_top = -179.704
+offset_right = -137.469
+offset_bottom = -139.704
+scale = Vector2(9.12684, 9.12684)
+
+[node name="GridContainer" type="GridContainer" parent="Settings"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -43,23 +106,82 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/v_separation = 8
 
-[node name="Label" type="Label" parent="GridContainer"]
+[node name="Label" type="Label" parent="Settings/GridContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0p0pc")
 theme_override_font_sizes/font_size = 32
-text = "Paused"
-
-[node name="Resume" type="Button" parent="GridContainer"]
-layout_mode = 2
-text = "Resume Game"
-
-[node name="Settings" type="Button" parent="GridContainer"]
-layout_mode = 2
 text = "Settings"
 
-[node name="Quit" type="Button" parent="GridContainer"]
+[node name="Label2" type="Label" parent="Settings/GridContainer"]
 layout_mode = 2
-text = "Quit"
+theme_override_fonts/font = ExtResource("3_ciyn7")
+text = "Master"
+horizontal_alignment = 1
 
-[connection signal="pressed" from="GridContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="GridContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="GridContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Master" type="HSlider" parent="Settings/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Back")
+max_value = 1.0
+step = 0.001
+value = 1.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Mute" type="CheckBox" parent="Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ciyn7")
+text = "Mute"
+
+[node name="Label3" type="Label" parent="Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ciyn7")
+text = "Music"
+horizontal_alignment = 1
+
+[node name="Music" type="HSlider" parent="Settings/GridContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Mute2" type="CheckBox" parent="Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ciyn7")
+text = "Mute"
+
+[node name="Label4" type="Label" parent="Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ciyn7")
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="SFX" type="HSlider" parent="Settings/GridContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Mute3" type="CheckBox" parent="Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ciyn7")
+text = "Mute"
+
+[node name="Back" type="Button" parent="Settings/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ciyn7")
+text = "Back"
+
+[connection signal="pressed" from="Pause/GridContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Pause/GridContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Pause/GridContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="Settings/GridContainer/Master" to="." method="_on_master_value_changed"]
+[connection signal="toggled" from="Settings/GridContainer/Mute" to="." method="_on_mute_toggled"]
+[connection signal="value_changed" from="Settings/GridContainer/Music" to="." method="_on_music_value_changed"]
+[connection signal="toggled" from="Settings/GridContainer/Mute2" to="." method="_on_mute_2_toggled"]
+[connection signal="value_changed" from="Settings/GridContainer/SFX" to="." method="_on_sfx_value_changed"]
+[connection signal="toggled" from="Settings/GridContainer/Mute3" to="." method="_on_mute_3_toggled"]
+[connection signal="pressed" from="Settings/GridContainer/Back" to="." method="_on_back_pressed"]

@@ -11,9 +11,18 @@ config_version=5
 [application]
 
 config/name="Remaking Icy Tower"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Music="*res://scenes/music.tscn"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [input]
 

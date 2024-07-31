@@ -1,15 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjcsvfi404uuh"]
+[gd_scene load_steps=3 format=3 uid="uid://dg7ooaf2y1itg"]
 
-[ext_resource type="Texture2D" uid="uid://upuk7i45fs05" path="res://assets/sprites/Tiles/Terrain (16x16).png" id="1_67bdh"]
+[ext_resource type="Texture2D" uid="uid://upuk7i45fs05" path="res://assets/sprites/Tiles/Terrain (16x16).png" id="1_b8aw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ri2a6"]
 size = Vector2(48, 4)
 
-[node name="Platform" type="AnimatableBody2D"]
-collision_mask = 2
+[node name="BasePlatform" type="AnimatableBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_67bdh")
+texture = ExtResource("1_b8aw6")
 region_enabled = true
 region_rect = Rect2(272, 16, 48, 5)
 

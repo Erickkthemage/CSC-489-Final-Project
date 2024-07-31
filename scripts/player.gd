@@ -7,6 +7,9 @@ extends CharacterBody2D
 @export var friction = 15.0
 
 @onready var animator = $AnimatedSprite2D
+@onready var jump_sound = $JumpSound
+@onready var bounce_sound = $BounceSound
+@onready var running_sound = $RunningSound
 
 var jump_grace_time = 0
 var jump_count = 0
@@ -47,12 +50,23 @@ func _physics_process(delta):
 		animator.flip_h = true
 		if is_on_floor():
 			animator.play("run")
+			if !running_sound.playing:
+				running_sound.play()
 		
 	if Input.is_action_pressed("right"):
 		velocity.x = move_toward(velocity.x, max_speed, acceleration)
 		animator.flip_h = false
 		if is_on_floor():
 			animator.play("run")
+			if !running_sound.playing:
+				running_sound.play()
+				
+	#Handles stopping the running sound if movement keys are let go
+	if Input.is_action_just_released("left"):
+		running_sound.stop()
+		
+	if Input.is_action_just_released("right"):
+		running_sound.stop()
 		
 	#Handles jump input. As well as determines if character is eligible for bounce jump.
 	if Input.is_action_just_pressed("jump"):
@@ -64,14 +78,17 @@ func _physics_process(delta):
 					velocity.y = bounce_jump_velocity
 					just_landed = false
 					animator.play("bounce")
+					bounce_sound.play()
 				else:
 					bounce_grace_time = .3
 					velocity.y = jump_velocity
 					animator.play("jump")
+					jump_sound.play()
 			else:
 				bounce_grace_time = .3
 				velocity.y = jump_velocity
 				animator.play("jump")
+				jump_sound.play()
 		
 	#Applies friction to slow the character down if the character is on the floor and not pressing any input.
 	if not Input.is_anything_pressed() && is_on_floor():
