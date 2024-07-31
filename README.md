@@ -1,2 +1,7 @@
 # CSC 489 Final Project
  
+This is the first game I have completed without following tutorials in Godot 4. I submitted this game as my final project for my CSC 489 class, my final class to complete my bachelor's degree.
+
+## Introduction
+
+The game is called "Citadel Climb", I took inspiration from an old game called "Icy Tower" that I remember playing daily on the library computers during middle school. Citadel Climb is an endless platformer where you try to climb as high as possible without falling too far down. You can move left or right and jump. If you fall 10 or more floors from your highest reached floor during that run, you lose and can either restart or quit. Every 50 floors there is what I call a breakpoint, which is a platform that extends across the entire tower so you can't fall lower than that point. Every 100 levels the platforms change to different styles, they don't currently do anything special other than just add a different visual. The platforms also get smaller the higher up you go until you reach around level 250 and then the platforms are all uniform in size and you can just keep going and see how high of a score you can get. I am very proud of this project as it's my first real game that I completed totally on my own. I'm sure there are flaws, however, I fixed all the flaws I could find as well as the ones my wife could find during her testing. Overall, I learned a lot about game development in general, as well as learning how to organize my code in a way that is easily readable as it grows.
