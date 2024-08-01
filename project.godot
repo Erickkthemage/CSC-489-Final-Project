@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Remaking Icy Tower"
+config/name="Citadel Climb"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
@@ -21,6 +21,7 @@ Music="*res://scenes/music.tscn"
 
 [display]
 
+window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
