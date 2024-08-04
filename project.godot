@@ -13,7 +13,8 @@ config_version=5
 config/name="Citadel Climb"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://icon.ico"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 

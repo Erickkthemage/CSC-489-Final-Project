@@ -267,7 +267,7 @@ script = ExtResource("1_2rog5")
 z_index = 5
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_14wxg")
-animation = &"bounce"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
